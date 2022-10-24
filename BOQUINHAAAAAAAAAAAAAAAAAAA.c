@@ -5,33 +5,33 @@
 
 int input;
 
-struct {
-
-    char userAdmin1[15];
-
-    char paswordAdmin1[15];
-
-}LoginAdmin;
-
-struct {
-
-
-    char userWorker1[15];
-
-    char paswordWorker1[15];
-
-
-}LoginFuncionario;
-
-struct {
-
-
-char userSecretary1[15];
-
-char paswordSecretary1[15];
-
-
-}LoginSecretaria;
+//struct {
+//
+//    char userAdmin1;
+//
+//    char paswordAdmin1;
+//
+//}LoginAdmin;
+//
+//struct {
+//
+//
+//    char userWorker1;
+//
+//    char paswordWorker1;
+//
+//
+//}LoginFuncionario;
+//
+//struct {
+//
+//
+//char userSecretary1;
+//
+//char paswordSecretary1;
+//
+//
+//}LoginSecretaria;
 
 struct{
 char user[10];
@@ -46,7 +46,7 @@ int opcoes;
 
 void main(){
 
-
+        setlocale(LC_ALL, "Portuguese");
             printf("\n");
         printf ("\t\t\t\t  Bem vindo! \n");
         printf ("\t\t\t\t  IStorm Imports \n");
@@ -66,13 +66,8 @@ void main(){
         case 1:
             TeladeCadastro();
             break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
         case 0:
+            printf("Pressione qualquer tecla para sair!");
             ;
         default:
             printf ("\n\t\t\tOpcao invalida!\n\n");
@@ -86,8 +81,9 @@ void main(){
 
 void TeladeCadastro(){
 
-
-
+    printf("\n");
+    printf("\n");
+    setlocale(LC_ALL, "Portuguese");
 
     int opcoes;
 
@@ -97,39 +93,24 @@ void TeladeCadastro(){
     scanf("%s", &Login.user);
     printf("2 - Digite a senha \n");
     scanf("%s", &Login.password);
-    printf("0 - Voltar a tela inicial");
-    printf("Digite a opção desejada:");
-    scanf("%d", &opcoes);
-
-    switch (opcoes){
-    case 0:
-    main();
-    break;
-    case 1:
-        CriarCadastro();
-    default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-
-    }
 
 
-}
+    char userAdmin = "admin";
+    char passwordAdmin = "admin";
 
-void CriarCadastro(){
+    char userWorker = "worker";
+    char passwordWorker = "7lBVTf2avwwTTit";
 
-    char userAdmin[15] = "admin";
-    char passwordAdmin[15] = "admin";
+    char userSecretary = "secretary";
+    char passwordSecretary = "QzkCSNN0ieNKOF7";
 
-    char userWorker[15] = "worker";
-    char passwordWorker[15] = "7lBVTf2avwwTTit";
+    printf("%s \n", &Login.user);
+    printf("%s \n", &Login.password);
+    printf("%s \n", &userAdmin);
+    printf("%s \n", &passwordAdmin);
 
-    char userSecretary[15] = "secretary";
-    char passwordSecretary[15] = "QzkCSNN0ieNKOF7";
-
-
-if (Login.user == userAdmin && userWorker && userSecretary){
-    Printf("Você tentou realizar um cadastro restrito! Tente outros nomes para cadastrar! \n");
-    getch();
+    if (Login.user == userAdmin && userWorker && userSecretary){
+    printf("Você tentou realizar um cadastro restrito! Tente outros nomes para cadastrar! \n");
     TeladeCadastro();
     }
 
@@ -138,24 +119,38 @@ if (Login.user == userAdmin && userWorker && userSecretary){
 
             FILE *fptr;
 
-            fopen("C:\\testePim\\singUp.bin","rb");
+            fptr = fopen("C:\testePim\\singUp.bin","rb");
 
-            fprintf(fptr,"%d",Login.user);
+            if (fptr!=NULL){
 
-            fprintf(fptr,"%d",Login.password);
+            fputs(fptr,"%d",Login.user, Login.password);
 
-            printf("Você realizou seu cadastro com sucesso!!");
+            fclose(fptr);
+            }
+
+            printf("Você realizou seu cadastro com sucesso!! \n");
             getch();
-            printf("Digite seu login e senha na próxima tela para continuar!");
+            printf("Digite seu login e senha na próxima tela para continuar!\n");
             getch();
-            TeladeLogin();
+
    }
+
+    }
+
+
+void CriarCadastro(){
 }
 
 void TeladeLogin(){
+
+    setlocale(LC_ALL, "Portuguese");
+    printf("\n");
+    printf("\n");
+
 int efetuado = 0;
 
 while(!efetuado){
+
         printf("Digite o Login: ");
         scanf("%s", login1);
 
@@ -171,7 +166,7 @@ while(!efetuado){
             break;
         default:
             printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
+
         }
 
        /* if (strcmp(login, login1) == 0 && strcmp(senha, senha1) == 0){
@@ -204,6 +199,10 @@ while(!efetuado){
 }
 
 void TeladeCliente(){
+
+    setlocale(LC_ALL, "Portuguese");
+
+                    printf("\n");
                     printf("\n");
 
         printf ("\t\t\t\t  IStorm Imports \n");
@@ -231,7 +230,6 @@ void TeladeCliente(){
             //exit(EXIT_SUCCESS);
         default:
             printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
         }
     }
 
