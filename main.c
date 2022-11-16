@@ -1,265 +1,204 @@
-#include<stdio.h>
-#include<locale.h>
-#include<string.h>
-#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#define LOGIN_MAX 20
+#define SENHA_MAX 20
 
-int input;
+struct usuario_t
+{
+    char login[64];
+    char senha[32];
+};
 
-struct {
-
-    char userAdmin1[15];
-
-    char paswordAdmin1[15];
-
-}LoginAdmin;
-
-struct {
-
-
-    char userWorker1[15];
-
-    char paswordWorker1[15];
-
-
-}LoginFuncionario;
-
-struct {
-
-
-char userSecretary1[15];
-
-char paswordSecretary1[15];
-
-
-}LoginSecretaria;
-
-struct{
-char user[10];
-char password[10];
-
-
-}Login;
-
-char login1[100];
-char senha1[100];
-int opcoes;
-
-void main(){
-
-
-            printf("\n");
-        printf ("\t\t\t\t  Bem vindo! \n");
-        printf ("\t\t\t\t  IStorm Imports \n");
-        printf ("\t\t\t===============================\n");
-        printf ("\t\t\t|\t                      |\n");
-        printf("\t\t\t|\t 1 - Realizar Cadastro        |\n");
-        printf("\t\t\t|\t 2 - Realizar Login         |\n");
-        printf("\t\t\t|\t 0 - Sair             |\n");
-        printf ("\t\t\t|\t                      |\n");
-        printf ("\t\t\t===============================\n");
-        printf ("\n\n");
+int main(int argc, char *argv[])
+{
+    int option = 0;
+    do
+    {
+        printf("\n");
+        printf("\t\t\t\t  Bem vindo! \n");
+        printf("\t\t\t\t  Tela de Menu Inicial \n");
+        printf("\t\t\t\t  IStorm Imports \n");
+        printf("\t\t\t=================================\n");
+        printf("\t\t\t|\t                        |\n");
+        printf("\t\t\t|\t 1 - Realizar Cadastro  |\n");
+        printf("\t\t\t|\t 2 - Realizar Login     |\n");
+        printf("\t\t\t|\t 3 - Sair               |\n");
+        printf("\t\t\t|\t                        |\n");
+        printf("\t\t\t=================================\n");
+        printf("\n\n");
         printf("\t\t\tPor favor, selecione uma opcao: ");
-        scanf("%d", &opcoes);
+        scanf("%d", &option);
 
-        switch(opcoes)
+        switch (option)
         {
         case 1:
-            TeladeCadastro();
+            system("cls");
+            TelaDeCadastro();
             break;
         case 2:
+            system("cls");
+            TelaDeLogin();
             break;
         case 3:
-            break;
-        case 4:
-            break;
-        case 0:
-            ;
+            exit(0);
         default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-
-        }
-    }
-
-//    while(input != 0);
-//    system("cls");
-
-
-void TeladeCadastro(){
-
-
-
-
-    int opcoes;
-
-
-    printf("Bem vindo a tela de cadastro! \n");
-    printf("1 - Digite o Usuário \n");
-    scanf("%s", &Login.user);
-    printf("2 - Digite a senha \n");
-    scanf("%s", &Login.password);
-    printf("0 - Voltar a tela inicial");
-    printf("Digite a opção desejada:");
-    scanf("%d", &opcoes);
-
-    switch (opcoes){
-    case 0:
-    main();
-    break;
-    case 1:
-        CriarCadastro();
-    default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-
-    }
-
-
-}
-
-void CriarCadastro(){
-
-    char userAdmin[15] = "admin";
-    char passwordAdmin[15] = "admin";
-
-    char userWorker[15] = "worker";
-    char passwordWorker[15] = "7lBVTf2avwwTTit";
-
-    char userSecretary[15] = "secretary";
-    char passwordSecretary[15] = "QzkCSNN0ieNKOF7";
-
-
-if (Login.user == userAdmin && userWorker && userSecretary){
-    Printf("Você tentou realizar um cadastro restrito! Tente outros nomes para cadastrar! \n");
-    getch();
-    TeladeCadastro();
-    }
-
-    if (Login.user && Login.password != userAdmin && passwordAdmin&& userWorker &&
-        passwordWorker && userSecretary && userWorker){
-
-            FILE *fptr;
-
-            fopen("C:\\testePim\\singUp.bin","rb");
-
-            fprintf(fptr,"%d",Login.user);
-
-            fprintf(fptr,"%d",Login.password);
-
-            printf("Você realizou seu cadastro com sucesso!!");
-            getch();
-            printf("Digite seu login e senha na próxima tela para continuar!");
-            getch();
-            TeladeLogin();
-   }
-}
-
-void TeladeLogin(){
-int efetuado = 0;
-
-while(!efetuado){
-        printf("Digite o Login: ");
-        scanf("%s", login1);
-
-        printf("Digite a Senha: ");
-        scanf("%s", senha1);
-
-        printf("0 - Voltar a tela inicial");
-
-
-        switch (opcoes) {
-            case 0:
-            main();
+            printf("Escolha 1, 2 ou 3\n");
             break;
-        default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
         }
 
-       /* if (strcmp(login, login1) == 0 && strcmp(senha, senha1) == 0){
-            printf("\n\nLOGADO!\n\n");
-            login_efetuado = 1;
-        }
-        else
-            printf("\n\nDADOS INVALIDOS!\n\n");
-            */
-    }
+    } while (1);
 
-
-
-
-    printf("1) - Digite o Usuário \n");
-    printf("2) - Digite a senha \n");
-
-    printf("Digite a opção desejada:");
-    scanf("%d", &opcoes);
-
-    switch (opcoes){
-    case 0:
-    main();
-    break;
-    default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
-    }
-
+    return 0;
 }
 
-void TeladeCliente(){
-                    printf("\n");
+void TelaDeLogin()
+{
 
-        printf ("\t\t\t\t  IStorm Imports \n");
-        printf ("\t\t\t===============================\n");
-        printf ("\t\t\t|\t                      |\n");
-        printf("\t\t\t|\t 1 - Realizar Pedido   |\n");
-        printf("\t\t\t|\t 2 - Pagar Pedido  |\n");
+    FILE *fp;
+    struct usuario_t usuario;
+    fp = fopen("login.txt", "a+");
+    if (!fp)
+    {
+        TelaDeCadastro();
+        fp = fopen("login.txt", "a+");
+        if (!fp)
+        {
+            printf("NÃ£o foi possivel encontrar o arquivo de login\n");
+            return 0;
+        }
+    }
+    memset(&usuario, 0, sizeof(struct usuario_t));
 
-        printf("\t\t\t|\t 0 - Sair             |\n");
-        printf ("\t\t\t|\t                      |\n");
-        printf ("\t\t\t===============================\n");
-        printf ("\n\n");
-        printf("\t\t\tPor favor, selecione uma opcao: ");
-        fflush(stdin);
-        scanf("%d", &input);
+    fread(&usuario, sizeof(struct usuario_t), 1, fp);
+    fclose(fp);
+    if (!strcmp("", usuario.login))
+    {
+        printf("Nenhum usuÃ¡rio encontrado, abrindo cadastro!\n");
+        TelaDeCadastro();
+    }
+    else
+    {
+        int tentativas = 0;
+        do
+        {
+            char login[LOGIN_MAX];
+            char senha[SENHA_MAX];
+            printf("Bem vindo a tela de login! \n\n");
+            printf("Login: ");
+            scanf("%s", &login);
+            printf("Senha: ");
+            scanf("%s", &senha);
+            if (!strcmp(login, usuario.login) && !strcmp(senha, usuario.senha))
+            {
+                printf("Logado com sucesso!\n\n");
+                printf("Pressione qualquer tecla para ir a tela de cliente! \n");
+                getch();
+                system("cls");
+                TelaDeCliente();
+                return 1;
+            }
+            else
+            {
+                printf("UsuÃ¡rio ou senha invalidos!\n\n");
+                tentativas++;
+            }
+        } while (tentativas < 3);
+        printf("Numero maximo de tentativas alcanÃ§ado!\n\n");
+        printf("Pressione qualquer tecla para voltar a tela principal! \n");
+        getch();
         system("cls");
-        switch(input)
+        return 0;
+    }
+    return 0;
+}
+
+void TelaDeCadastro()
+{
+
+    FILE *fp;
+    struct usuario_t usuario;
+    memset(&usuario, 0, sizeof(struct usuario_t));
+
+    printf("Bem vindo a tela de cadastro! \n\n");
+    printf("Login: ");
+    scanf("%s", &usuario.login);
+    printf("Senha: ");
+    scanf("%s", &usuario.senha);
+
+    fp = fopen("login.txt", "a+");
+    if (!fp)
+    {
+        printf("NÃ£o foi possÃ­vel criar o arquivo de login");
+        return;
+    }
+    fwrite(&usuario, sizeof(struct usuario_t), 1, fp);
+    fclose(fp);
+    printf("Cadastrado com sucesso\n\n");
+    printf("Pressione qualquer tecla para ir a tela de login! \n");
+    getch();
+    system("cls");
+    TelaDeLogin();
+}
+
+void TelaDeCliente()
+{
+
+    int input;
+
+    do
+    {
+        printf("\n");
+        printf("\t\t\t\t  Tela de Cliente \n");
+        printf("\t\t\t\t  IStorm Imports \n");
+        printf("\t\t\t===============================\n");
+        printf("\t\t\t|\t                      |\n");
+        printf("\t\t\t|\t 1 - Realizar Pedido  |\n");
+        printf("\t\t\t|\t 2 - Pagar Pedido     |\n");
+        printf("\t\t\t|\t 3 - Sair             |\n");
+        printf("\t\t\t|\t                      |\n");
+        printf("\t\t\t===============================\n");
+        printf("\n\n");
+        printf("\t\t\tPor favor, selecione uma opcao: ");
+        scanf("%d", &input);
+
+        switch (input)
         {
         case 1:
-            TeladeLogin();
+            system("cls");
+            RealizarPedido();
             break;
         case 2:
+            system("cls");
+            PagarPedido();
             break;
-        case 0:
-            //exit(EXIT_SUCCESS);
+        case 3:
+            exit(0);
         default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
+            printf("Escolha 1, 2 ou 3\n");
+            break;
         }
-    }
 
+    } while (1);
+}
 
+void RealizarPedido()
+{
+    printf("REALIZAR PEDIDO\n");
+    printf("PEDIDO FEITO COM SUCESSO\n\n");
+    printf("Pressione qualquer tecla! \n");
+    getch();
+    system("cls");
+    TelaDeCliente();
+}
 
-
-
-
-
-
-//    setlocale(LC_ALL, "Portuguese");
-//
-//    printf("Tela de Login\n\n");
-//    printf("Digite o Login:");
-//    scanf("%s", login1);
-//
-//    printf("Digite a Senha:");
-//    scanf("%s", senha1);
-//
-//    if(strcmp(login, login1) == 0 && strcmp(senha, senha1) == 0)
-//    {
-//         printf("\n\nUsuário logado!\n\n");
-//        system("cls");
-//        TeladeMenu();
-//    }
-//
-//    else
-//        printf("\n\nLogin e/ou senha incorretos!\n\n");
-//
-//}
-
+void PagarPedido()
+{
+    printf("PAGAR PEDIDO\n");
+    printf("PAGAMENTO FEITO COM SUCESSO\n\n");
+    printf("Pressione qualquer tecla! \n");
+    getch();
+    system("cls");
+    TelaDeCliente();
+}
