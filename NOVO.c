@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         {
         case 1:
             system("cls");
-            TelaDeSN();
+            TelaDeAdmin();
             break;
         case 2:
             system("cls");
@@ -53,36 +53,6 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void TelaDeSN()
-{
-    char sn;
-
-    printf("\t\t\t\t  IStorm Imports \n");
-    printf("\t\t\t=================================\n");
-    printf("\t\t\t|\t                        |\n");
-    printf("\t\t\t|\t 1 - Sim                |\n");
-    printf("\t\t\t|\t 2 - Nao                |\n");
-    printf("\t\t\t|\t                        |\n");
-    printf("\t\t\t|\t                        |\n");
-    printf("\t\t\t=================================\n");
-    printf("\n\n");
-    printf("\t\t\tQuer realizar o login? ");
-    scanf("%s", &sn);
-        switch (sn)
-        {
-        case 1:
-            system("cls");
-            TelaDeAdmin();
-            break;
-        case 2:
-            printf("Voltando para a tela principal! \n\n ");
-            printf("Pressione qualquer tecla para voltar a tela principal! \n");
-            getch();
-            system("cls");
-            int main(int argc, char *argv[]);
-        }
-}
-
 void TelaDeAdmin()
 {
     char adminlogin[15] = "admin";
@@ -91,7 +61,6 @@ void TelaDeAdmin()
     char adminsenha2[15];
     int comparacao, comparacao2;
 
-    void SN();
     printf("Login: ");
     scanf("%s",&adminlogin2);
     printf("Senha: ");
